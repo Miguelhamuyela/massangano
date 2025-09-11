@@ -254,7 +254,7 @@ Route::prefix('_admin.schools')->name('admin.')->group(function () {
     Route::get('school', [SchoolController::class, 'School'])->name('school.listar');
     Route::get('schoolCreate', [SchoolController::class, 'create'])->name('school.create');
     Route::post('school', [SchoolController::class, 'store'])->name('school.store');
-    Route::get('schoolEdit', [SchoolController::class, 'edit'])->name('school.edit');
+    Route::get('schoolEdit/{school}', [SchoolController::class, 'edit'])->name('school.edit');
     Route::put('schoolUpdate/{school}', [SchoolController::class, 'update'])->name('school.update');
     Route::get('schoolDelete/{school}', [SchoolController::class, 'destroy'])->name('school.destroy');
     Route::get('schoolView/{school}', [SchoolController::class, 'show'])->name('school.view');

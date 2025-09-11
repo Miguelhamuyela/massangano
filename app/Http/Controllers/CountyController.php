@@ -108,14 +108,7 @@ class CountyController extends Controller
     public function destroy(County $county)
     {
         //
-        $county = County::findOrFail($county->id);
-
-        // Verifica se a categoria está associada a algum artigo
-        if (!$county) {
-            return redirect()->back()->with('error', 'Município não encontrada!');
-        }
-
-
+        $county = County::findOrFail($county);
         // Exclui a categoria do banco de dados
 
         $county->delete();

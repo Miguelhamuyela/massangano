@@ -54,18 +54,18 @@ class SchoolController extends Controller
             'bout'        => 'required|string',
             'schoolType'  => 'required|in:publica,privada',
             'schoolLevel' => 'required|in:Iº Ano,IIº Ano,IIIº Ano,IVº Ano,Vº Ano',
-            'schoolCategory' => 'required|string',
+            'schoolCategory' => 'nullable|string',
             'description' => 'required|string',
             'id_provinces' => 'required|exists:provinces,id',
             'id_counties' => 'required|exists:counties,id',
             'id_courses' => 'required|exists:courses,id',
         ]);
 
-        if ($request->schoolType === 'privada') {
+        /* if ($request->schoolType === 'privada') {
             $rules['schoolCategory'] = 'required|string';
-        }
+        } */
 
-        $data = $request->validate($rules);
+        /* $data = $request->validate($rules); */
 
         School::create($data);
 
@@ -82,7 +82,8 @@ class SchoolController extends Controller
     public function show(School $school)
     {
         //
-        return view('_admin.schools.schoolView.index', ['id' => $school->id]);
+        /* $school = School::findOrFail($school->id); */
+        return view('_admin.schools.schoolView.index', ['school' => $school]);
     }
 
     /**
@@ -93,11 +94,10 @@ class SchoolController extends Controller
      */
     public function edit(School $school)
     {
-        $school = School::findOrFail($school->id);
         $provinces = Province::all();
         $counties = County::all();
         $courses = Course::all();
-        return view('admin.schools.editar.index', compact('school', 'provinces', 'counties', 'courses'));
+        return view('_admin.schools.schoolEdit.index', compact('school', 'provinces', 'counties', 'courses'));
     }
 
     /**
@@ -109,9 +109,8 @@ class SchoolController extends Controller
      */
     public function update(Request $request, School $school)
     {
-        $school = School::findOrFail($school->id);
 
-        $validated = $request->validate([
+        $request->validate([
             'name'        => 'required|string|max:255',
             'nSchool'     => 'required|string|unique:schools',
             'email'       => 'required|email|unique:schools',
@@ -128,7 +127,22 @@ class SchoolController extends Controller
             'id_courses' => 'required|exists:courses,id',
         ]);
 
-        $school->update($validated);
+        $school->update([
+            'name'        => $request->name,
+            'nSchool'     => $request->nSchool,
+            'email'       => $request->email,
+            'nif'         => $request->nif,
+            'phone'       => $request->phone,
+            'nRoom'       => $request->nRoom,
+            'bout'        => $request->bout,
+            'schoolType'  => $request->schoolType,
+            'schoolLevel' => $request->schoolLevel,
+            'schoolCategory' => $request->schoolCategory,
+            'description' => $request->description,
+            'id_provinces' => $request->id_provinces,
+            'id_counties' => $request->id_counties,
+            'id_courses' => $request->id_courses,
+        ]);
 
         return redirect()->route('admin.school.update')->with('success', 'Escola atualizada com sucesso!');
         return redirect()->back()->with('error', 'Ocorreu um erro ao Salver Universidade!');
@@ -142,8 +156,8 @@ class SchoolController extends Controller
      */
     public function destroy(School $school)
     {
-        $school = School::findOrFail($school->id);
+        $school = School::findOrFail($school);
         $school->delete();
-        return redirect()->route('admin.school.destroy')->with('success', 'Escola removida com sucesso!');
+        return redirect()->route('admin.school.listar')->with('success', 'Escola removida com sucesso!');
     }
 }
