@@ -7,6 +7,11 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\FinalistController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ProvinceController;
+use App\Http\Controllers\CountyController;
+use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TypeCategoryController;
@@ -78,7 +83,7 @@ Route::prefix('_admin.categories')->name('admin.')->group(function () {
 /*-------------------------------------------------------
                     Author routes
 -------------------------------------------------------*/
-/* 
+/*
 Route::prefix('_admin.authors')->name('admin.')->group(function () {
     Route::get('author', [AuthorController::class, 'index'])->name('author.index')->middleware('auth');
     Route::get('authorCreate', [AuthorController::class, 'create'])->name('author.create')->middleware('auth');
@@ -239,3 +244,74 @@ Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('
 
 
 Route::get('/pesquisa', [NewsController::class, 'search'])->name('news.search');
+
+
+/*-------------------------------------------------------
+                    School routes
+-------------------------------------------------------*/
+// Schools route
+Route::prefix('_admin.schools')->name('admin.')->group(function () {
+    Route::get('school', [SchoolController::class, 'School'])->name('school.listar');
+    Route::get('schoolCreate', [SchoolController::class, 'create'])->name('school.create');
+    Route::post('school', [SchoolController::class, 'store'])->name('school.store');
+    Route::get('schoolEdit', [SchoolController::class, 'edit'])->name('school.edit');
+    Route::put('schoolUpdate/{school}', [SchoolController::class, 'update'])->name('school.update');
+    Route::get('schoolDelete/{school}', [SchoolController::class, 'destroy'])->name('school.destroy');
+    Route::get('schoolView/{school}', [SchoolController::class, 'show'])->name('school.view');
+});
+
+/*-------------------------------------------------------
+                    Province routes
+-------------------------------------------------------*/
+// Schools route
+Route::prefix('_admin.provinces')->name('admin.')->group(function () {
+    Route::get('province', [ProvinceController::class, 'index'])->name('province.listar');
+    Route::get('provinceCreate', [ProvinceController::class, 'create'])->name('province.create');
+    Route::post('province', [ProvinceController::class, 'store'])->name('province.store');
+    Route::get('provinceEdit', [ProvinceController::class, 'edit'])->name('province.edit');
+    Route::put('provinceUpdate/{province}', [ProvinceController::class, 'update'])->name('province.update');
+    Route::get('provinceDelete/{province}', [ProvinceController::class, 'destroy'])->name('province.destroy');
+    Route::get('provinceView/{province}', [ProvinceController::class, 'show'])->name('province.view');
+});
+
+/*-------------------------------------------------------
+                    County routes
+-------------------------------------------------------*/
+// Schools route
+Route::prefix('_admin.counties')->name('admin.')->group(function () {
+    Route::get('county', [CountyController::class, 'index'])->name('county.listar');
+    Route::get('countyCreate', [CountyController::class, 'create'])->name('county.create');
+    Route::post('county', [CountyController::class, 'store'])->name('county.store');
+    Route::get('countyEdit', [CountyController::class, 'edit'])->name('county.edit');
+    Route::put('countyUpdate/{county}', [CountyController::class, 'update'])->name('county.update');
+    Route::get('countyDelete/{county}', [CountyController::class, 'destroy'])->name('county.destroy');
+    Route::get('countyView/{county}', [CountyController::class, 'show'])->name('county.view');
+});
+
+/*-------------------------------------------------------
+                    Course routes
+-------------------------------------------------------*/
+// Schools route
+Route::prefix('_admin.counties')->name('admin.')->group(function () {
+    Route::get('course', [CourseController::class, 'index'])->name('course.listar');
+    Route::get('courseCreate', [CourseController::class, 'create'])->name('course.create');
+    Route::post('course', [CourseController::class, 'store'])->name('course.store');
+    Route::get('courseEdit', [CourseController::class, 'edit'])->name('course.edit');
+    Route::put('courseUpdate/{course}', [CourseController::class, 'update'])->name('course.update');
+    Route::get('courseDelete/{course}', [CourseController::class, 'destroy'])->name('course.destroy');
+    Route::get('courseView/{course}', [CourseController::class, 'show'])->name('course.view');
+});
+
+/*-------------------------------------------------------
+                    Finalist routes
+-------------------------------------------------------*/
+// Finalist route
+Route::prefix('_admin.finalists')->name('admin.')->group(function () {
+    Route::get('finalist', [FinalistController::class, 'index'])->name('finalist.listar');
+    Route::get('finalistCreate', [FinalistController::class, 'create'])->name('finalist.create');
+    Route::post('finalistStore', [FinalistController::class, 'store'])->name('finalist.store');
+    Route::get('finalistView/{finalist}', [FinalistController::class, 'show'])->name('finalist.view');
+    Route::get('finalistEdit/{finalist}', [FinalistController::class, 'edit'])->name('finalist.edit');
+    Route::put('finalistUpdate/{finalist}', [FinalistController::class, 'update'])->name('finalist.update');
+    Route::get('finalistDelete/{finalist}', [FinalistController::class, 'destroy'])->name('finalist.delete');
+});
