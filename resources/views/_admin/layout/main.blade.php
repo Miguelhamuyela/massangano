@@ -35,6 +35,7 @@
     <!--! END: Vendors CSS-->
     <!--! BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{ url('assets/css/theme.min.css') }}">
+
     <!--! END: Custom CSS-->
     <!--! HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries !-->
     <!--! WARNING: Respond.js doesn"t work if you view the page via file: !-->
@@ -89,11 +90,13 @@
 
         {{-- Buscando todos os conteudos --}}
         @yield('content')
-        
+
         {{-- Footer --}}
         @include('_admin.layout.footer')
     </main>
     @include('_admin.layout.theme')
+
+    <script src="{{ url('assets/js/category.js') }}"></script>
 
     <!--! BEGIN: Vendors JS !-->
     <script src="{{ url('assets/vendors/js/vendors.min.js') }}"></script>
@@ -116,7 +119,6 @@
     <!--! BEGIN: Theme Customizer  !-->
     <script src="{{ url('assets/js/theme-customizer-init.min.js') }}"></script>
     <!--! END: Theme Customizer !-->
-
 </body>
 
 

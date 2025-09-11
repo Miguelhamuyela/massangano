@@ -196,7 +196,7 @@ class NewsController extends Controller
         //$news->update($request->all());
         $news->update($data);
 
-         // Associar tags se fornecidas
+        // Associar tags se fornecidas
         if ($request->has('tags')) {
             $news->tags()->sync($request->tags);
         } else {
