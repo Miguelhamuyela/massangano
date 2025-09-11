@@ -106,7 +106,7 @@ class ProvinceController extends Controller
     public function destroy(Province $province)
     {
         //
-        $procince = Province::findOrFail($province->id);
+        $procince = Province::findOrFail($province);
 
         // Verifica se a categoria está associada a algum artigo
         if (!$province) {

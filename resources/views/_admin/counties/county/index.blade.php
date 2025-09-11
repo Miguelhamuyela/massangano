@@ -227,7 +227,7 @@
                                                 <td>
                                                     <div class="hstack gap-2 justify-content-end">
                                                         <a class="avatar-text avatar-md"
-                                                            href="{{ route('admin.county.view', ['county' => $county]) }}">
+                                                            href="#">
                                                             <i class="feather feather-eye"></i>
                                                         </a>
                                                         <div class="dropdown">
@@ -237,7 +237,7 @@
                                                             </a>
                                                             <ul class="dropdown-menu">
                                                                 <a class="dropdown-item"
-                                                                    href="{{ route('admin.county.edit', ['county' => $county]) }}">
+                                                                    href="#">
                                                                     <i class="feather feather-edit-3 me-3"></i>
                                                                     <span>Editar</span>
                                                                 </a>

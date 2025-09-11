@@ -111,7 +111,8 @@ class FinalistController extends Controller
         //
         $finalists = Finalist::findOrFail($finalist->id);
         $schools = School::all();
-        return view('_admin.finalists.finalistEdit.index', compact('finalist', 'schools'));
+        $courses = Course::all();
+        return view('_admin.finalists.finalistEdit.index', compact('finalist', 'schools', 'courses'));
     }
 
     /**
@@ -176,7 +177,7 @@ class FinalistController extends Controller
     public function destroy(Finalist $finalist)
     {
         //
-        $finalist = Finalist::findOrFail($finalist->id);
+        $finalist = Finalist::findOrFail($finalist);
         $finalist->delete();
         return redirect()->route('admin.finalist.delete')->with('success', 'Finalista removido com sucesso.');
     }

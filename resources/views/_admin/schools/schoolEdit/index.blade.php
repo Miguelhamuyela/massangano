@@ -1,5 +1,5 @@
 @extends('_admin.layout.main')
-@section('title', 'Assessorarte- Criar Universidade')
+@section('title', 'Assessorarte- Editar Universidade')
 @section('content')
 
     <!-- [ Craete Form ] -->
@@ -12,7 +12,7 @@
                 </div>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Criar</li>
+                    <li class="breadcrumb-item">Editar</li>
                 </ul>
             </div>
             <div class="page-header-right ms-auto">
@@ -53,44 +53,48 @@
                                 <a href="#" class="btn btn-sm btn-light-brand">Listar
                                     Universidade</a>
                             </div>
-                            <form action="{{ route('admin.school.store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('admin.school.update', ['school' => $school]) }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
-                                @method('POST')
+                                @method('PUT')
 
                                 <div class="row">
                                     {{-- Nome --}}
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Nome da Universidade</label>
                                         <input type="text" name="name" class="form-control"
-                                            value="{{ old('nome') }}" placeholder="Ex: Universidade...">
+                                            value="{{ old('nome', $shool->name ?? '') }}" placeholder="Ex: Universidade...">
                                     </div>
 
                                     {{-- Numero da Universidade --}}
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Nº da Universidade</label>
                                         <input type="text" name="nSchool" class="form-control"
-                                            value="{{ old('nSchool') }}" placeholder="Ex: ID da Universidade..">
+                                            value="{{ old('nSchool', $school->nSchool ?? '') }}"
+                                            placeholder="Ex: ID da Universidade..">
                                     </div>
 
                                     {{-- E-mail --}}
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">E-Mail da Universidade</label>
                                         <input type="email" name="email" class="form-control"
-                                            value="{{ old('email') }}" placeholder="Ex: Endereço de Email..">
+                                            value="{{ old('email', $school->email ?? '') }}"
+                                            placeholder="Ex: Endereço de Email..">
                                     </div>
 
                                     {{-- NIF --}}
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">NIF da Universidade</label>
                                         <input type="text" name="nif" class="form-control"
-                                            value="{{ old('nif') }}" placeholder="NIF da Universidade (Instituição)..">
+                                            value="{{ old('nif', $school->nif ?? '') }}"
+                                            placeholder="NIF da Universidade (Instituição)..">
                                     </div>
 
                                     {{-- Telefone --}}
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Telefone da Universidade</label>
                                         <input type="text" name="phone" class="form-control"
-                                            value="{{ old('phone') }}"
+                                            value="{{ old('phone', $school->phone ?? '') }}"
                                             placeholder="Ex: +244 923 000   000 / +244 923 000 000">
                                     </div>
 
@@ -105,7 +109,10 @@
                                             mb-4">
                                         <label class="form-label">Tipo de Universidade</label>
                                         <select class="form-control select" id="schoolType" name="schoolType" required>
-                                            <option value="">Seleciona o Tipo de Universidade
+                                            <option value="{{ old('schoolType', $school->schoolType ?? '') }}">Seleciona o
+                                                Tipo
+                                                de
+                                                Universidade
                                             </option>
                                             <option value="publica">Pública</option>
                                             <option value="privada">Privada</option>
@@ -116,14 +123,18 @@
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Quantidade de Salas</label>
                                         <input type="text" name="nRoom" class="form-control"
-                                            value="{{ old('nRoom') }}" placeholder="Insira o total de Salas de aulas">
+                                            value="{{ old('nRoom', $school->nRoom ?? '') }}"
+                                            placeholder="Insira o total de Salas de aulas">
                                     </div>
 
                                     {{-- Nivel de Universidade --}}
                                     <div class="col-lg-4 mb-4" id="nivel-div" style="display: none;">
                                         <label class="form-label select">Nivel de Universidade</label>
                                         <select class="form-control select" name="schoolLevel" id="schoolLevel" required>
-                                            <option value="">Seleciona o Nivel de Universidade</option>
+                                            <option value="{{ old('schoolLevel', $school->schoolLeve ?? '') }}">Seleciona o
+                                                Nivel
+                                                de Universidade
+                                            </option>
                                         </select>
                                     </div>
 
@@ -131,7 +142,9 @@
                                     <div class="col-lg-4 mb-4" id="categoria-div" style="display: none;">
                                         <label class="form-label select">Categoria de Universidade</label>
                                         <select class="form-control select" name="schoolCategory" id="schoolCategory">
-                                            <option value="">Selecione a Categoria da Universidade
+                                            <option value="{{ old('schoolCategory', $school->schoolCategory) }}">Selecione
+                                                a
+                                                Categoria da Universidade
                                             </option>
                                         </select>
                                     </div>
@@ -161,7 +174,8 @@
                                     <div class="col-lg-4 mb-4" id="turno-div" style="display: none;">
                                         <label class="form-label select">Selecione o Turno</label>
                                         <select class="form-control" name="bout" id="bout" required>
-                                            <option value="">Selecione o Turno</option>
+                                            <option value="{{ old('bout', $school->bout ?? '') }}">Selecione o Turno
+                                            </option>
                                             </option>
                                         </select>
                                     </div>
