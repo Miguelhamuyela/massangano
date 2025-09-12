@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -53,39 +53,43 @@ class UserController extends Controller
     } */
     public function store(Request $request)
     {
-        //Validação do dados
+        // Validação dos dados
         $dados = $request->validate([
-            'name' => ['required','string','max:255'],
+            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'unique:users'],
-            'password' => ['required', 'string', 'password','min:8'],
+            'password' => ['required', 'string', 'min:8'],
             'access_level' => ['required', 'string'],
-            'image' => ['nullable','image','mimes:jpg,jpeg,png'],
-
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png'],
         ], [
             'name.required' => 'Nome obrigatório.',
             'email.required' => 'E-mail obrigatório.',
-            'email.unique:users' => 'E-mail já esxistente.',
-            'password.required' => 'Password obrigatório.',
-            'access_level.required' => 'Nivel de acesso obrigatório.',
-            'image.image' => 'Precisa ser uma imagem válida',
-            'image.mimes' => 'Imagem válida é nos seguintes formatos: jpg, jpeg, png.',
+            'email.unique' => 'E-mail já existente.',
+            'password.required' => 'Password obrigatória.',
+            'access_level.required' => 'Nível de acesso obrigatório.',
+            'image.image' => 'Precisa ser uma imagem válida.',
+            'image.mimes' => 'Imagem deve ser nos formatos: jpg, jpeg, png.',
         ]);
 
-        //processando a imagem
-        $imageName = null;
-        if($request->hasFile('image') && $request->file('image')->isValid()){
+        // Hash da senha
+        $dados['password'] = bcrypt($dados['password']);
+
+        // Processando a imagem
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $image = $request->file('image');
             $extension = $image->extension();
-            $imageName = md5($image->getClientOriginalName(). strtotime('now')) . '.' . $extension;
+            $imageName = md5($image->getClientOriginalName() . strtotime('now')) . '.' . $extension;
             $image->move(public_path('img/users'), $imageName);
-            $dados['image']= $imageName;
+            $dados['image'] = $imageName;
         }
 
-        //criando um novo user
-        $user = User::create($dados);
-        redirect()->route('admin.user.index')->with('Success',' Utilizador cadastrado com sucesso! ');
-        redirect()->back()->with('Error', 'Erro ao cadastrar utilizador');
+        // Criando um novo user
+        User::create($dados);
+
+        return redirect()
+            ->route('admin.user.index')
+            ->with('success', 'Utilizador cadastrado com sucesso!');
     }
+
     public function show(User $user)
     {
         //
