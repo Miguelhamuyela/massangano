@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container py-4">
-        <h3>Resultados para: "{{ $query }}"</h3>
+        <h3>Resultados encontrados das pesquisas: "{{ $query }}"</h3>
 
         <section class="space-top space-extra-bottom">
             <div class="container">
@@ -19,7 +19,8 @@
                                         <div class="blog-style4">
                                             <div class="blog-img img-big img-profile">
                                                 <a href="{{ asset('img/finalist/' . $finalist->cover) }} " target="_blank">
-                                                    <img src="{{ asset('img/finalist/' . $finalist->cover) }}" alt="blog image">
+                                                    <img src="{{ asset('img/finalist/' . $finalist->cover) }}"
+                                                        alt="blog image">
                                                 </a>
                                             </div>
                                             <div class="blog-content">
@@ -90,6 +91,56 @@
                                                         {{ $item->updated_at->format('d M, Y') }}
                                                     </a>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+
+                                {{-- Se não achou nada --}}
+                            @elseif($schools->count())
+                                <h4>Universidade encontrada</h4>
+                                @foreach ($schools as $school)
+                                    <div class="border-blog2">
+                                        <div class="blog-style4">
+                                            <div class="blog-img img-big img-profile">
+                                                <img src="{{ asset('img/school/' . $school->image) }}" alt="blog image">
+                                            </div>
+                                            <div class="blog-content">
+                                                <h3 {{-- class="box-title-20" --}}>
+                                                    <a class="hover-line" href="#">
+                                                        {{ $school->name }}
+                                                    </a>
+                                                </h3>
+                                                <p>Dados da Intituição</p>
+                                                <h5>
+                                                    E-mail: <a class="hover-line" href="#">
+                                                        {{ $school->email }}
+                                                    </a>
+                                                </h5>
+                                                <h5>
+                                                    Telefone: <a class="hover-line" href="#">
+                                                        {{ $school->phone }}
+                                                    </a>
+                                                </h5>
+
+                                                @if ($school->province)
+                                                    <b>
+                                                        <p class="hover-line">
+                                                            Endereço: <a data-theme-color="#6234AC" href="blog.html"
+                                                                class="course hover-line">
+                                                                {{ $school->province->name }} /
+                                                                {{ $school->county->name }}
+                                                            </a>
+                                                        </p>
+                                                    </b>
+                                                @endif
+
+                                                {{--  <div class="blog-meta">
+                                                    <a href="#">
+                                                        <i class="fal fa-calendar-days"></i>
+                                                        {{ $school->updated_at->format('d M, Y') }}
+                                                    </a>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>

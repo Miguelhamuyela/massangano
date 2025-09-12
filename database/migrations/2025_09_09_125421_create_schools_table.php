@@ -22,6 +22,7 @@ class CreateSchoolsTable extends Migration
             $table->string('phone');
             $table->string('nRoom');
             $table->string('bout');
+            $table->string('image')->nullable();
             $table->string('schoolCategory')->nullable();
             $table->text('description')->nullable();
             $table->enum('schoolType', ['publica', 'privada'])->default('publica'); // 'public' or 'private'

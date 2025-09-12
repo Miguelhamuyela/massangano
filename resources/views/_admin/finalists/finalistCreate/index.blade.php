@@ -180,7 +180,7 @@
 
                                             {{-- Div de upload de imagem dos Finalistas --}}
                                             <div class="col-lg-6 mb-4">
-                                                <label for="coverImg" class="form-label">Imagem de Capa: </label>
+                                                <label for="coverImg" class="form-label">Imagem de Perfil: </label>
                                                 <input type="file" class="form-control" name="cover" id="coverImg"
                                                     value="{{ old('cover') }}" placeholder="Carregue a imagem...">
                                             </div>
