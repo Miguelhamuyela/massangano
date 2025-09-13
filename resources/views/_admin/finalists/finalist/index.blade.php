@@ -1,4 +1,4 @@
-@extends('_admin.layout.main')
+@extends('layouts._admin.main')
 @section('title', 'Assessorarte- Finalistas')
 @section('content')
     <div class="nxl-content">

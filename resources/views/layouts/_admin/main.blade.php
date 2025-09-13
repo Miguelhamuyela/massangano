@@ -81,20 +81,20 @@
 </head>
 
 <body>
-    @include('_admin.layout.header')
-    @include('_admin.layout.menu')
+    @include('layouts._admin.header')
+    @include('layouts._admin.menu')
 
     <main class="nxl-container">
         {{-- #------ Alerts ------# --}}
-        @include('_admin.layout.alerts')
+        @include('layouts._admin.alerts')
 
         {{-- Buscando todos os conteudos --}}
         @yield('content')
 
         {{-- Footer --}}
-        @include('_admin.layout.footer')
+        @include('layouts._admin.footer')
     </main>
-    @include('_admin.layout.theme')
+    @include('layouts._admin.theme')
 
     <script src="{{ url('assets/js/category.js') }}"></script>
 

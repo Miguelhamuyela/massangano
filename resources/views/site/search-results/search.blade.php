@@ -1,11 +1,10 @@
-@extends('site.layout.main')
+@extends('layouts._site.main')
 
 @section('title', 'Resultados da Pesquisa')
 
 @section('content')
     <div class="container py-4">
         <h3>Resultados para: "{{ $query }}"</h3>
-
         <section class="space-top space-extra-bottom">
             <div class="container">
                 <div class="row">

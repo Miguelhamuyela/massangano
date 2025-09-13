@@ -1,9 +1,5 @@
-@extends('_admin.layout.main')
-<<<<<<< HEAD:resources/views/_admin/users/user/index.blade.php
+@extends('layouts._admin.main')
 @section('title', 'Ngola News - Lisar Utilizadores')
-=======
-@section('title', 'Assessorarte - Lisar Autores')
->>>>>>> joel:resources/views/_admin/authors/author/index.blade.php
 @section('content')
 
     <div class="nxl-content">

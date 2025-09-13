@@ -1,4 +1,4 @@
-@extends('_admin.layout.main')
+@extends('layouts._admin.main')
 @section('title', 'Assessorarte- Visualizar Notícia')
 @section('content-newsView')
     <div class="nxl-content">

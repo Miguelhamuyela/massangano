@@ -15,9 +15,9 @@ class AdvertisementsTableSeeder extends Seeder
     {
 
 
-        DB::table('Advertisements')->delete();
+        DB::table('advertisements')->delete();
 
-        DB::table('Advertisements')->insert(array(
+        DB::table('advertisements')->insert(array(
             0 =>
             array(
                 'id' => 1,
