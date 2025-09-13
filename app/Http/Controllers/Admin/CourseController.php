@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
 
-use App\Models\Province;
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
+use App\Models\Course;
 
-class ProvinceController extends Controller
+class CourseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +18,8 @@ class ProvinceController extends Controller
     public function index()
     {
         //
-        $province = Province::orderByDesc('id')->get();
-        return view('_admin.provinces.province.index', compact('province'));
+        $courses = Course::orderByDesc('id')->get();
+        return view('_admin.courses.course.index', compact('courses'));
     }
 
     /**
@@ -27,8 +30,8 @@ class ProvinceController extends Controller
     public function create()
     {
         //
-        $province = Province::all();
-        return view('_admin.provinces.provinceCreate.index', compact('province'));
+        $courses = Course::all();
+        return view('_admin.courses.courseCreate.index', compact('courses'));
     }
 
     /**
@@ -44,11 +47,11 @@ class ProvinceController extends Controller
             'name' => 'required|string',
         ]);
 
-        Province::create([
+        Course::create([
             'name' => $request->name,
         ]);
 
-        return redirect()->route('admin.province.listar')->with('success', 'Província criada com sucesso!');
+        return redirect()->route('admin.course.listar')->with('success', 'Cusro criada com sucesso!');
     }
 
     /**
@@ -57,10 +60,10 @@ class ProvinceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Province $province)
+    public function show(Course $courses)
     {
         //
-        return view('_admin.provinces.provinceView.index', ['province' => $province]);
+        return view('_admin.courses.courseView.index', ['course' => $courses]);
     }
 
     /**
@@ -69,11 +72,11 @@ class ProvinceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Province $province)
+    public function edit(Course $courses)
     {
         //
-        $province = Province::all();
-        return view('_admin.provinces.provinceEdit.index', ['province' => $province]);
+        $courses = Course::all();
+        return view('_admin.course.courseEdit.index', ['course' => $courses]);
     }
 
     /**
@@ -83,18 +86,18 @@ class ProvinceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Province $province)
+    public function update(Request $request, Course $courses)
     {
         //
         $request->validate([
             'name' => 'required|string',
         ]);
 
-        $province->update([
+        $courses->update([
             'name' => $request->name,
         ]);
 
-        return redirect()->route('admin.province.index')->with('success', 'Província atualizada com sucesso!');
+        return redirect()->route('admin.course.index')->with('success', 'Cusro atualizada com sucesso!');
     }
 
     /**
@@ -103,20 +106,20 @@ class ProvinceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Province $province)
+    public function destroy(Course $courses)
     {
         //
-        $procince = Province::findOrFail($province);
+        $courses = Course::findOrFail($courses->id);
 
         // Verifica se a categoria está associada a algum artigo
-        if (!$province) {
-            return redirect()->back()->with('error', 'Província não encontrada!');
+        if (!$courses) {
+            return redirect()->back()->with('error', 'Cusro não encontrada!');
         }
 
 
         // Exclui a categoria do banco de dados
 
-        $province->delete();
-        return redirect()->route('admin.province.index')->with('success', 'Província apagado com sucesso!');
+        $courses->delete();
+        return redirect()->route('admin.course.index')->with('success', 'Cusro apagado com sucesso!');
     }
 }
