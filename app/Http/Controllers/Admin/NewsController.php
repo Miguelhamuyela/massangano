@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Tag;
 use App\Models\Category;
+use App\Models\Finalist;
 use App\Models\Advertisement;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -226,24 +227,12 @@ class NewsController extends Controller
             ->with('success', 'Notícia eliminado com sucesso');
     }
 
-    // Função de busca
+    // Função de busca avançada para notícias
     public function search(Request $request)
     {
         $query = $request->input('q');
 
-        $news = News::with(['category.typeCategory', 'tags'])
-            ->where('title', 'like', "%{$query}%")
-            ->orWhereHas('category', function ($q1) use ($query) {
-                $q1->where('name', 'like', "%{$query}%");
-            })
-            ->orWhereHas('category.typeCategory', function ($q2) use ($query) {
-                $q2->where('name', 'like', "%{$query}%");
-            })
-            ->orWhereHas('tags', function ($q3) use ($query) {
-                $q3->where('name', 'like', "%{$query}%");
-            })
-            ->get();
-
+        // Variáveis globais usadas no layout (header, footer, etc.)
         $categories = Category::where('name')->get();
 
         $breaknews = News::where('detach', 'destaque')->orderByDesc('id')->get()->take(3);
@@ -261,9 +250,46 @@ class NewsController extends Controller
 
         $ads = Advertisement::orderByDesc('id')->take(1)->get();
 
+        // Pesquisa de finalistas primeiro
+        $finalists = Finalist::where('bi', 'like', "%{$query}%")->get();
+
+        if ($finalists->count() > 0) {
+            // Retorna apenas finalistas, mas mantendo as variáveis do layout
+            return view('site.search-results.search', compact(
+                'query',
+                'finalists',
+                'categories',
+                'breaknews',
+                'footerCategory',
+                'subscription',
+                'Recent',
+                'RecentPost',
+                'ads'
+            ))->with('news', collect()); // news vazio
+        }
+
+        // Caso contrário, pesquisa notícias
+        $news = News::with(['category.typeCategory', 'tags'])
+            ->where('title', 'like', "%{$query}%")
+            ->orWhereHas('category', function ($q1) use ($query) {
+                $q1->where('name', 'like', "%{$query}%");
+            })
+            ->orWhereHas('category.typeCategory', function ($q2) use ($query) {
+                $q2->where('name', 'like', "%{$query}%");
+            })
+            ->orWhereHas('tags', function ($q3) use ($query) {
+                $q3->where('name', 'like', "%{$query}%");
+            })
+            ->get();
+
+        // Pesquisa de finalistas (por número do B.I)
+        /* $finalists = Finalist::where('bi', 'like', "%{$query}%")->get(); */
+
+
         return view('site.search-results.search', compact(
             'news',
             'query',
+            /* 'finalists', */
             'categories',
             'breaknews',
             'footerCategory',
@@ -271,6 +297,6 @@ class NewsController extends Controller
             'Recent',
             'RecentPost',
             'ads'
-        ));
+        ))->with('finalists', collect()); // finalists vazio
     }
 }

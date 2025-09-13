@@ -102,7 +102,7 @@ class SiteController extends Controller
 
         $footerCategory = Category::select('name')
             ->distinct()
-            
+
             ->take(5)
             ->get();
 
@@ -144,7 +144,7 @@ class SiteController extends Controller
         $breaknews = News::where('detach', 'destaque')->orderByDesc('id')->take(3)->get();
         $footerCategory = Category::select('name')
             ->distinct()
-            
+
             ->take(5)
             ->get();
         $Recent = News::orderBy('updated_at', 'desc')->take(2)->get();
@@ -166,7 +166,7 @@ class SiteController extends Controller
         $breaknews = News::where('detach', 'destaque')->orderByDesc('id')->take(3)->get();
         $footerCategory = Category::select('name')
             ->distinct()
-            
+
             ->take(5)
             ->get();
         $Recent = News::orderBy('updated_at', 'desc')->take(2)->get();
@@ -180,7 +180,7 @@ class SiteController extends Controller
         $breaknews = News::where('detach', 'destaque')->orderByDesc('id')->take(3)->get();
         $footerCategory = Category::select('name')
             ->distinct()
-            
+
             ->take(5)
             ->get();
         $Recent = News::orderBy('updated_at', 'desc')->take(2)->get();
@@ -196,7 +196,7 @@ class SiteController extends Controller
         $breaknews = News::where('detach', 'destaque')->orderByDesc('id')->take(3)->get();
         $footerCategory = Category::select('name')
             ->distinct()
-            
+
             ->take(5)
             ->get();
         $Recent = News::orderBy('updated_at', 'desc')->take(2)->get();
@@ -261,7 +261,7 @@ class SiteController extends Controller
             ->distinct()
             ->get()
             ->take(5) ;
-           
+
 
         $Recent = News::orderBy('updated_at', 'desc')->get()->take(2);
 
@@ -302,7 +302,7 @@ class SiteController extends Controller
             ->distinct()
             ->get()
             ->take(5);
-            
+
         $Recent = News::orderBy('updated_at', 'desc')->get()->take(2);
 
         $RecentPost = News::orderBy('updated_at', 'desc')->get()->take(4);
@@ -342,7 +342,7 @@ class SiteController extends Controller
             ->distinct()
             ->get()
             ->take(5);
-            
+
 
         $Recent = News::orderBy('updated_at', 'desc')->get()->take(2);
 
@@ -383,7 +383,7 @@ class SiteController extends Controller
             ->distinct()
             ->get()
             ->take(5);
-            
+
 
         $Recent = News::orderBy('updated_at', 'desc')->get()->take(2);
 
@@ -449,7 +449,7 @@ class SiteController extends Controller
         $breaknews = News::where('detach', 'destaque')->orderByDesc('id')->take(3)->get();
         $footerCategory = Category::select('name')
             ->distinct()
-            
+
             ->take(5)
             ->get();
         $Recent = News::orderBy('updated_at', 'desc')->take(2)->get();
