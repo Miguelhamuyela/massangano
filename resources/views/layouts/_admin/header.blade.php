@@ -2387,9 +2387,7 @@
                                         </div>
                                         <p class="fs-11 text-muted mb-0">{{ Auth::user()->email }}</p>
                                     </div>
-                                    <div class="dropdown-item">
-                                        <a href="/">Website</a>
-                                    </div>
+                                        <a class="dropdown-item" href="/">Website</a>
                                     <a class="dropdown-item" href="/login"
                                         onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">

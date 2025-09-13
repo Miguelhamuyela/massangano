@@ -1,4 +1,4 @@
-@extends('_admin.layout.main')
+@extends('layouts._admin.main')
 @section('title', 'Ngola News - Lisar Utilizadores')
 @section('content')
 

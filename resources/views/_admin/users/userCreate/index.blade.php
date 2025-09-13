@@ -1,4 +1,4 @@
-@extends('_admin.layout.main')
+@extends('layouts._admin.main')
 
 <<<<<<< HEAD:resources/views/_admin/users/userCreate/index.blade.php
 @section('title', 'Ngola News - Criar Utilizador')

@@ -1,4 +1,4 @@
-@extends('_admin.layout.main')
+@extends('layouts._admin.main')
 @section('title', 'Criar Galeria')
 @section('content')
     <div class="nxl-content">
