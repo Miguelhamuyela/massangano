@@ -17,7 +17,7 @@ class AdvertisementController extends Controller
     public function index()
     {
         $ads = Advertisement::orderByDesc('id')->take(1)->get();
-        return view('_admin.ads.ads.index', compact('ads'));
+        return view('_admin.ads.list.index', compact('ads'));
     }
 
     /**
@@ -27,7 +27,7 @@ class AdvertisementController extends Controller
      */
     public function create()
     {
-        return view('_admin.ads.adsCreate.index');
+        return view('_admin.ads.create.index');
     }
 
     /**

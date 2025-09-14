@@ -19,7 +19,7 @@ class ProvinceController extends Controller
     {
         //
         $province = Province::orderByDesc('id')->get();
-        return view('_admin.provinces.province.index', compact('province'));
+        return view('_admin.provinces.list.index', compact('province'));
     }
 
     /**
@@ -31,7 +31,7 @@ class ProvinceController extends Controller
     {
         //
         $province = Province::all();
-        return view('_admin.provinces.provinceCreate.index', compact('province'));
+        return view('_admin.provinces.create.index', compact('province'));
     }
 
     /**
@@ -63,7 +63,7 @@ class ProvinceController extends Controller
     public function show(Province $province)
     {
         //
-        return view('_admin.provinces.provinceView.index', ['province' => $province]);
+        return view('_admin.provinces.details.index', ['province' => $province]);
     }
 
     /**
@@ -76,7 +76,7 @@ class ProvinceController extends Controller
     {
         //
         $province = Province::all();
-        return view('_admin.provinces.provinceEdit.index', ['province' => $province]);
+        return view('_admin.provinces.edit.index', ['province' => $province]);
     }
 
     /**

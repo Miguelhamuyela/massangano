@@ -19,7 +19,7 @@ class CourseController extends Controller
     {
         //
         $courses = Course::orderByDesc('id')->get();
-        return view('_admin.courses.course.index', compact('courses'));
+        return view('_admin.courses.list.index', compact('courses'));
     }
 
     /**
@@ -31,7 +31,7 @@ class CourseController extends Controller
     {
         //
         $courses = Course::all();
-        return view('_admin.courses.courseCreate.index', compact('courses'));
+        return view('_admin.courses.create.index', compact('courses'));
     }
 
     /**
@@ -63,7 +63,7 @@ class CourseController extends Controller
     public function show(Course $courses)
     {
         //
-        return view('_admin.courses.courseView.index', ['course' => $courses]);
+        return view('_admin.courses.details.index', ['course' => $courses]);
     }
 
     /**
@@ -76,7 +76,7 @@ class CourseController extends Controller
     {
         //
         $courses = Course::all();
-        return view('_admin.course.courseEdit.index', ['course' => $courses]);
+        return view('_admin.course.edit.index', ['course' => $courses]);
     }
 
     /**

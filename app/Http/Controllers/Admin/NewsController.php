@@ -26,7 +26,7 @@ class NewsController extends Controller
     {
         //
         $news = News::orderByDesc('id')->get();
-        return view('_admin.news.news.index', compact('news'));
+        return view('_admin.news.list.index', compact('news'));
     }
 
     /**
@@ -41,7 +41,7 @@ class NewsController extends Controller
         //trazendo as categorias
         $categories = Category::all();
         $tags = Tag::all();
-        return view('_admin.news.newsCreate.index', compact('categories', 'tags'));
+        return view('_admin.news.create.index', compact('categories', 'tags'));
     }
 
     /**
@@ -118,7 +118,7 @@ class NewsController extends Controller
     {
         //
 
-        return view('_admin.news.newsViews.index', ['news' => $news]);
+        return view('_admin.news.details.index', ['news' => $news]);
     }
 
     /**
@@ -134,7 +134,7 @@ class NewsController extends Controller
         $categories = Category::all(); // Or any other query to fetch categories
         $tags = Tag::all();
 
-        return view('_admin.news.newsEdit.index', ['news' => $news], compact('categories', 'tags'));
+        return view('_admin.news.edit.index', ['news' => $news], compact('categories', 'tags'));
     }
 
     /**

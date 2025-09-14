@@ -21,7 +21,7 @@ class CountyController extends Controller
     {
         //
         $county = County::orderByDesc('id')->get();
-        return view('_admin.counties.county.index', compact('county'));
+        return view('_admin.counties.list.index', compact('county'));
     }
 
     /**
@@ -33,7 +33,7 @@ class CountyController extends Controller
     {
         //
         $county = County::all();
-        return view('_admin.counties.countyCreate.index', compact('county'));
+        return view('_admin.countries.create.index', compact('county'));
     }
 
     /**
@@ -53,7 +53,7 @@ class CountyController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect()->route('admin.county.listar')->with('success', 'Município criada com sucesso!');
+        return redirect()->route('admin.country.listar')->with('success', 'Município criada com sucesso!');
     }
 
     /**
@@ -65,7 +65,7 @@ class CountyController extends Controller
     public function show(County $county)
     {
         //
-        return view('_admin.counties.countyView.index', ['county' => $county]);
+        return view('_admin.countries.details.index', ['county' => $county]);
     }
 
     /**
@@ -78,7 +78,7 @@ class CountyController extends Controller
     {
         //
         $counties = County::all();
-        return view('_admin.county.countyEdit.index', ['county' => $county]);
+        return view('_admin.country.edit.index', ['county' => $county]);
     }
 
     /**

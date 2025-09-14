@@ -21,7 +21,7 @@ class SchoolController extends Controller
     public function School()
     {
         $schools = School::with(['province', 'county', 'course'])->orderByDesc('id')->get();
-        return view('_admin.schools.school.index', compact('schools'));
+        return view('_admin.schools.list.index', compact('schools'));
     }
 
     /**
@@ -34,7 +34,7 @@ class SchoolController extends Controller
         $courses = Course::all();
         $provinces = Province::all();
         $counties = County::all();
-        return view('_admin.schools.schoolCreate.index', compact('provinces', 'counties', 'courses'));
+        return view('_admin.schools.create.index', compact('provinces', 'counties', 'courses'));
     }
 
     /**
@@ -84,7 +84,7 @@ class SchoolController extends Controller
     {
         //
         /* $school = School::findOrFail($school->id); */
-        return view('_admin.schools.schoolView.index', ['school' => $school]);
+        return view('_admin.schools.details.index', ['school' => $school]);
     }
 
     /**
@@ -98,7 +98,7 @@ class SchoolController extends Controller
         $provinces = Province::all();
         $counties = County::all();
         $courses = Course::all();
-        return view('_admin.schools.schoolEdit.index', compact('school', 'provinces', 'counties', 'courses'));
+        return view('_admin.schools.edit.index', compact('school', 'provinces', 'counties', 'courses'));
     }
 
     /**
