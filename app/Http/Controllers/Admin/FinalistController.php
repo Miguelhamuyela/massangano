@@ -22,7 +22,7 @@ class FinalistController extends Controller
     {
         //
         $finalists = Finalist::with(['school', 'course'])->orderByDesc('id')->get();
-        return view('_admin.finalists.finalist.index', compact('finalists'));
+        return view('_admin.finalists.list.index', compact('finalists'));
     }
 
     /**
@@ -35,7 +35,7 @@ class FinalistController extends Controller
         //
         $schools = School::all();
         $courses = Course::all();
-        return view('_admin.finalists.finalistCreate.index', compact('schools', 'courses'));
+        return view('_admin.finalists.create.index', compact('schools', 'courses'));
     }
 
     /**
@@ -100,7 +100,7 @@ class FinalistController extends Controller
     {
         //
         $finalists = Finalist::with('school')->findOrFail($finalist->id);
-        return view('_admin.finalists.finalistView.index', compact('finalist'));
+        return view('_admin.finalists.details.index', compact('finalist'));
     }
 
     /**
@@ -115,7 +115,7 @@ class FinalistController extends Controller
         $finalists = Finalist::findOrFail($finalist->id);
         $schools = School::all();
         $courses = Course::all();
-        return view('_admin.finalists.finalistEdit.index', compact('finalist', 'schools', 'courses'));
+        return view('_admin.finalists.edit.index', compact('finalist', 'schools', 'courses'));
     }
 
     /**

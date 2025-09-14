@@ -21,7 +21,7 @@ class CategoryController extends Controller
     {
         $categories = Category::with('typeCategory')->orderByDesc('id')->get();
         //$categories = Category::all();
-        return view('_admin.categories.categories.index', compact('categories'));
+        return view('_admin.categories.list.index', compact('categories'));
     }
 
     /**
@@ -33,7 +33,7 @@ class CategoryController extends Controller
     {
         /*  $typeCategories = typeCategory::where('name->name')->get(); */
         $typeCategories = TypeCategory::all();
-        return view('_admin.categories.categoryCreate.index', compact('typeCategories'));
+        return view('_admin.categories.create.index', compact('typeCategories'));
     }
 
     /**
@@ -85,7 +85,7 @@ class CategoryController extends Controller
     {
         //
 
-        return view('_admin.categories.categoryView.index', ['category' => $category]);
+        return view('_admin.categories.details.index', ['category' => $category]);
     }
 
     /**
@@ -98,7 +98,7 @@ class CategoryController extends Controller
     {
         //
         $typeCategories = TypeCategory::all();
-        return view('_admin.categories.categoryEdit.index', compact('category', 'typeCategories'));
+        return view('_admin.categories.edit.index', compact('category', 'typeCategories'));
     }
 
     /**

@@ -23,7 +23,7 @@ class TagController extends Controller
         //
         // This method should return a view for listing tags.
         $tags = Tag::orderByDesc('id')->get();
-        return view('_admin.tags.tag.index', compact('tags'));
+        return view('_admin.tags.list.index', compact('tags'));
     }
 
     /**
@@ -36,7 +36,7 @@ class TagController extends Controller
         //
         // This method should return a view for creating a new tag.
         $news = News::all(); // Fetch all news for potential tag association
-        return view('_admin.tags.tagCreate.index', compact('news'));
+        return view('_admin.tags.create.index', compact('news'));
     }
 
     /**
@@ -81,7 +81,7 @@ class TagController extends Controller
     {
         //
         // This method should return a view for showing a specific tag.
-        return view('_admin.tags.tagViews.index', compact('tag'));
+        return view('_admin.tags.details.index', compact('tag'));
     }
 
     /**
@@ -95,7 +95,7 @@ class TagController extends Controller
         //
         // This method should return a view for editing a specific tag.
         $news = News::all(); // Fetch all news for potential tag association
-        return view('_admin.tags.tagEdit.index', compact('tag', 'news'));
+        return view('_admin.tags.edit.index', compact('tag', 'news'));
     }
 
     /**
