@@ -21,6 +21,7 @@ class School extends Model
         'phone',
         'nRoom',
         'bout',
+        'image',
         'description',
         'schoolType',
         'schoolLevel',
