@@ -3,7 +3,7 @@
 <<<<<<< HEAD:resources/views/_admin/users/userCreate/index.blade.php
 @section('title', 'Ngola News - Criar Utilizador')
 =======
-@section('title', 'Assessorarte- Criar Autor')
+@section('title', 'Sogecepa- Criar Autor')
 >>>>>>> joel:resources/views/_admin/authors/authorCreate/index.blade.php
 
 @section('content')

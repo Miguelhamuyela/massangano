@@ -1,5 +1,5 @@
 @extends('_admin.layout.main')
-@section('title', 'Assessorarte- Listar Tags')
+@section('title', 'Sogecepa- Listar Tags')
 @section('content')
     <div class="nxl-content">
         <!-- [ page-header ] start -->

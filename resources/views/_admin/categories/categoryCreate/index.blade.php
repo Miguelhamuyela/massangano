@@ -1,5 +1,5 @@
 @extends('_admin.layout.main')
-@section('title', 'Assessorarte- Criar Categoria')
+@section('title', 'Sogecepa- Criar Categoria')
 @section('content')
 
     <!-- [ Craete Form ] -->

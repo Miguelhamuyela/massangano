@@ -5,7 +5,7 @@
                 <div class="col-lg-2 d-none d-lg-inline-block">
                     <div class="header-logo">
                         <a href="/">
-                            <img src="{{ url('site/assets/img/1-Photoroom.png') }}" alt="Assessorarte">
+                            <img src="{{ url('site/assets/img/1-Photoroom.png') }}" alt="Sogecepa">
                         </a>
                     </div>
                 </div>
@@ -62,11 +62,11 @@
                                 <div class="header-logo">
                                     <a href="/">
                                         <img class="light-img" src="{{ url('assets/images/1-Photoroom.png') }}"
-                                            alt="Assessorarte">
+                                            alt="Sogecepa">
                                     </a>
                                     <a href="/">
                                         <img class="dark-img" src="{{ url('assets/images/1-Photoroom.png') }}"
-                                            alt="Assessorarte">
+                                            alt="Sogecepa">
                                     </a>
                                 </div>
                             </div>

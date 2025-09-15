@@ -1,5 +1,5 @@
 @extends('_admin.layout.main')
-@section('title', 'Assessorarte- Criar Município')
+@section('title', 'Sogecepa- Criar Município')
 @section('content')
 
     <!-- [ Craete Form ] -->
@@ -48,7 +48,7 @@
                                 <h5 class="fw-bold mb-0 me-4">
                                     <span class="d-block mb-2">Criando Município :</span>
                                     <span class="fs-12 fw-normal text-muted text-truncate-1-line">Normalmente se refere a
-                                        adicionar uma nova Município</span>
+                                        adicionar um novo Município</span>
                                 </h5>
                                 <a href="#" class="btn btn-sm btn-light-brand">Listar
                                     Município</a>
@@ -62,7 +62,7 @@
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Nome da Município</label>
                                         <input type="text" name="name" class="form-control"
-                                            value="{{ old('nome') }}" placeholder="Ex: Cazenga...">
+                                            value="{{ old('nome') }}" placeholder="Nome da Município...">
                                     </div>
 
                                     {{-- Botão de Enviar --}}

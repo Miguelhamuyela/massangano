@@ -1,5 +1,5 @@
 @extends('site.layout.main')
-@section('title', 'Assessorarte- Notícia Detalhada')
+@section('title', 'Sogecepa- Notícia Detalhada')
 @section('content')
 
 

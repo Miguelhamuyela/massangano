@@ -1,5 +1,5 @@
 @extends('_admin.layout.main')
-@section('title', 'Assessorarte- Listar Eventos')
+@section('title', 'Sogecepa- Listar Eventos')
 @section('content')
 
     <div class="nxl-content">

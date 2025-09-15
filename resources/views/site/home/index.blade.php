@@ -1,5 +1,5 @@
 @extends('site.layout.main')
-@section('title', 'Assessorarte- Home')
+@section('title', 'Sogecepa- Home')
 @section('content')
     {{-- Sessão dos noticias da categoria Politica com mais destaque e as mais recentes --}}
     <div class="th-hero-wrapper hero-1" id="hero">
@@ -538,6 +538,8 @@
                                 </button>
                             </form>
                         </div>
+
+
                         {{-- Fim de Subscrição --}}
                     </div>
                 </div>

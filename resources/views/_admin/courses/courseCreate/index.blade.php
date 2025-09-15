@@ -1,5 +1,5 @@
 @extends('_admin.layout.main')
-@section('title', 'Assessorarte- Criar Curso')
+@section('title', 'Sogecepa- Criar Curso')
 @section('content')
 
     <!-- [ Craete Form ] -->
@@ -48,7 +48,7 @@
                                 <h5 class="fw-bold mb-0 me-4">
                                     <span class="d-block mb-2">Criando Curso :</span>
                                     <span class="fs-12 fw-normal text-muted text-truncate-1-line">Normalmente se refere a
-                                        adicionar uma nova Curso</span>
+                                        adicionar um novo Curso</span>
                                 </h5>
                                 <a href="#" class="btn btn-sm btn-light-brand">Listar
                                     Curso</a>
@@ -62,7 +62,7 @@
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Nome da Curso</label>
                                         <input type="text" name="name" class="form-control"
-                                            value="{{ old('nome') }}" placeholder="Ex: Informática...">
+                                            value="{{ old('nome') }}" placeholder="Nome do Curso...">
                                     </div>
 
                                     {{-- Botão de Enviar --}}

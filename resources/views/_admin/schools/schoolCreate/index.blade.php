@@ -1,5 +1,5 @@
 @extends('_admin.layout.main')
-@section('title', 'Assessorarte- Criar Universidade')
+@section('title', 'Sogecepa- Criar Universidade')
 @section('content')
 
     <!-- [ Craete Form ] -->
@@ -62,21 +62,21 @@
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Nome da Universidade</label>
                                         <input type="text" name="name" class="form-control"
-                                            value="{{ old('nome') }}" placeholder="Ex: Universidade...">
+                                            value="{{ old('nome') }}" placeholder="Nome da Universidade...">
                                     </div>
 
                                     {{-- Numero da Universidade --}}
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Nº da Universidade</label>
                                         <input type="text" name="nSchool" class="form-control"
-                                            value="{{ old('nSchool') }}" placeholder="Ex: ID da Universidade..">
+                                            value="{{ old('nSchool') }}" placeholder="ID da Universidade..">
                                     </div>
 
                                     {{-- E-mail --}}
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">E-Mail da Universidade</label>
                                         <input type="email" name="email" class="form-control"
-                                            value="{{ old('email') }}" placeholder="Ex: Endereço de Email..">
+                                            value="{{ old('email') }}" placeholder="E-Mail da Universidade..">
                                     </div>
 
                                     {{-- NIF --}}
@@ -114,9 +114,9 @@
 
                                     {{-- Quantidade de Salas --}}
                                     <div class="col-lg-4 mb-4">
-                                        <label class="form-label">Quantidade de Salas</label>
+                                        <label class="form-label">Número de Salas</label>
                                         <input type="text" name="nRoom" class="form-control"
-                                            value="{{ old('nRoom') }}" placeholder="Insira o total de Salas de aulas">
+                                            value="{{ old('nRoom') }}" placeholder="Número de Salas">
                                     </div>
 
                                     {{-- Nivel de Universidade --}}

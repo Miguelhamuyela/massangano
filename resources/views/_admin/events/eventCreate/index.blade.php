@@ -1,5 +1,5 @@
 @extends('_admin.layout.main')
-@section('title', 'Assessorarte- Criar Evento')
+@section('title', 'Sogecepa- Criar Evento')
 @section('content')
     <!--! ================================================================ !-->
     <!--! [Start] Main Content !-->

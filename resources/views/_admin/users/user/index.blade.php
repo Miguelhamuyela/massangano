@@ -2,7 +2,7 @@
 <<<<<<< HEAD:resources/views/_admin/users/user/index.blade.php
 @section('title', 'Ngola News - Lisar Utilizadores')
 =======
-@section('title', 'Assessorarte - Lisar Autores')
+@section('title', 'Sogecepa - Lisar Autores')
 >>>>>>> joel:resources/views/_admin/authors/author/index.blade.php
 @section('content')
 

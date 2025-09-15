@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Assessorarte - Registrar')
+@section('title', 'Sogecepa - Registrar')
 @section('content')
     <div class="auth-minimal-wrapper">
         <div class="auth-minimal-inner">
@@ -11,7 +11,7 @@
                     </div>
                     <div class="card-body p-sm-5">
                         <h2 class="fs-20 fw-bolder mb-4">{{ __('Register') }}</h2>
-                        <h4 class="fs-13 fw-bold mb-2">Faça o Gerenciamento do Assessorarte</h4>
+                        <h4 class="fs-13 fw-bold mb-2">Faça o Gerenciamento do Sogecepa</h4>
                         {{-- <p class="fs-12 fw-medium text-muted">Let's get you all setup, so you can verify your personal
                             account and begine setting up your profile.</p> --}}
 

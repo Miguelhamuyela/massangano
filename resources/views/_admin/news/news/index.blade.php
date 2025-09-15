@@ -1,6 +1,6 @@
 @extends('_admin.layout.main')
 
-@section('title', 'Assessorarte- Listar Notícia')
+@section('title', 'Sogecepa- Listar Notícia')
 
 @section('content')
     <div class="nxl-content">

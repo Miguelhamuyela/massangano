@@ -32,6 +32,86 @@
                     </ul>
                 </li>
 
+
+            {{-- Menu Cursos --}}
+            <li class="nxl-item nxl-hasmenu">
+                <a href="javascript:void(0);" class="nxl-link">
+                    <span class="nxl-micon"><i class="feather-book"></i></span>
+                    <span class="nxl-mtext">Cursos</span><span class="nxl-arrow"><i
+                            class="feather-chevron-right"></i></span>
+                </a>
+                <ul class="nxl-submenu">
+                    <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.course.listar') }}">Lista de
+                            Cursos</a></li>
+                    <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.course.create') }}">Novo
+                            Curso</a></li>
+                </ul>
+            </li>
+            {{-- Menu Município --}}
+            <li class="nxl-item nxl-hasmenu">
+                <a href="javascript:void(0);" class="nxl-link">
+                    <span class="nxl-micon"><i class="feather-user"></i></span>
+                    <span class="nxl-mtext">Municípo</span><span class="nxl-arrow"><i
+                            class="feather-chevron-right"></i></span>
+                </a>
+                <ul class="nxl-submenu">
+                    <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.county.listar') }}">Lista
+                            de
+                            Municípios</a></li>
+                    <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.county.create') }}">Nova
+                            Município</a>
+                    </li>
+                </ul>
+            </li>
+            {{-- Menu Provinces --}}
+            <li class="nxl-item nxl-hasmenu">
+                <a href="javascript:void(0);" class="nxl-link">
+                    <span class="nxl-micon"><i class="feather-user"></i></span>
+                    <span class="nxl-mtext">Províncias</span><span class="nxl-arrow"><i
+                            class="feather-chevron-right"></i></span>
+                </a>
+                <ul class="nxl-submenu">
+                    <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.province.listar') }}">Lista de
+                            Províncias</a></li>
+                    <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.province.create') }}">Nova
+                            Província</a>
+                    </li>
+                </ul>
+            </li>
+            {{-- Menu Universidade --}}
+            <li class="nxl-item nxl-hasmenu">
+                <a href="javascript:void(0);" class="nxl-link">
+                    <span class="nxl-micon"><i class="feather-user"></i></span>
+                    <span class="nxl-mtext">Universidade</span><span class="nxl-arrow"><i
+                            class="feather-chevron-right"></i></span>
+                </a>
+                <ul class="nxl-submenu">
+                    <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.school.listar') }}">Lista
+                            de
+                            Universidades</a></li>
+                    <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.school.create') }}">Nova
+                            Universidade</a>
+                    </li>
+                </ul>
+            </li>
+
+            {{-- Menu Finalistas --}}
+            <li class="nxl-item nxl-hasmenu">
+                <a href="javascript:void(0);" class="nxl-link">
+                    <span class="nxl-micon"><i class="feather-user"></i></span>
+                    <span class="nxl-mtext">Finalistas</span><span class="nxl-arrow"><i
+                            class="feather-chevron-right"></i></span>
+                </a>
+                <ul class="nxl-submenu">
+                    <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.finalist.listar') }}">Lista de
+                            Finalistas</a></li>
+                    <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.finalist.create') }}">Novo
+                            Finalista</a>
+                    </li>
+                </ul>
+            </li>
+
+
                 {{-- Menu Types Categories --}}
                 <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
@@ -157,6 +237,7 @@
                     <!-- <li class="nxl-item"><a class="nxl-link" href="/events/eventsTimesheets">Timesheets Report</a></li> -->
                 </ul>
             </li>
+
             {{-- Menu videos --}}
             <li class="nxl-item nxl-hasmenu">
                 <a href="javascript:void(0);" class="nxl-link">
@@ -202,82 +283,7 @@
                     </li>
                 </ul>
             </li>
-            {{-- Menu Cursos --}}
-            <li class="nxl-item nxl-hasmenu">
-                <a href="javascript:void(0);" class="nxl-link">
-                    <span class="nxl-micon"><i class="feather-book"></i></span>
-                    <span class="nxl-mtext">Cursos</span><span class="nxl-arrow"><i
-                            class="feather-chevron-right"></i></span>
-                </a>
-                <ul class="nxl-submenu">
-                    <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.course.listar') }}">Lista de
-                            Cursos</a></li>
-                    <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.course.create') }}">Novo
-                            Curso</a></li>
-                </ul>
-            </li>
-            {{-- Menu Município --}}
-            <li class="nxl-item nxl-hasmenu">
-                <a href="javascript:void(0);" class="nxl-link">
-                    <span class="nxl-micon"><i class="feather-user"></i></span>
-                    <span class="nxl-mtext">Municípo</span><span class="nxl-arrow"><i
-                            class="feather-chevron-right"></i></span>
-                </a>
-                <ul class="nxl-submenu">
-                    <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.county.listar') }}">Lista
-                            de
-                            Municípios</a></li>
-                    <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.county.create') }}">Nova
-                            Município</a>
-                    </li>
-                </ul>
-            </li>
-            {{-- Menu Provinces --}}
-            <li class="nxl-item nxl-hasmenu">
-                <a href="javascript:void(0);" class="nxl-link">
-                    <span class="nxl-micon"><i class="feather-user"></i></span>
-                    <span class="nxl-mtext">Províncias</span><span class="nxl-arrow"><i
-                            class="feather-chevron-right"></i></span>
-                </a>
-                <ul class="nxl-submenu">
-                    <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.province.listar') }}">Lista de
-                            Províncias</a></li>
-                    <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.province.create') }}">Nova
-                            Província</a>
-                    </li>
-                </ul>
-            </li>
-            {{-- Menu Universidade --}}
-            <li class="nxl-item nxl-hasmenu">
-                <a href="javascript:void(0);" class="nxl-link">
-                    <span class="nxl-micon"><i class="feather-user"></i></span>
-                    <span class="nxl-mtext">Universidade</span><span class="nxl-arrow"><i
-                            class="feather-chevron-right"></i></span>
-                </a>
-                <ul class="nxl-submenu">
-                    <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.school.listar') }}">Lista
-                            de
-                            Universidades</a></li>
-                    <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.school.create') }}">Nova
-                            Universidade</a>
-                    </li>
-                </ul>
-            </li>
-            {{-- Menu Finalistas --}}
-            <li class="nxl-item nxl-hasmenu">
-                <a href="javascript:void(0);" class="nxl-link">
-                    <span class="nxl-micon"><i class="feather-user"></i></span>
-                    <span class="nxl-mtext">Finalistas</span><span class="nxl-arrow"><i
-                            class="feather-chevron-right"></i></span>
-                </a>
-                <ul class="nxl-submenu">
-                    <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.finalist.listar') }}">Lista de
-                            Finalistas</a></li>
-                    <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.finalist.create') }}">Novo
-                            Finalista</a>
-                    </li>
-                </ul>
-            </li>
+
         </div>
     </div>
     </div>
