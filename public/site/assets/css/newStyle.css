@@ -200,7 +200,7 @@
     object-fit: cover;
 }
 
-/* allnews - todas */
+/* Profile do aluno - todas */
 .img-profile {
     width: 100%;
     height: 12.5rem;
@@ -208,6 +208,19 @@
 }
 
 .img-profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Profile do aluno - todas */
+.img-uniLogo {
+    width: 100%;
+    height: 15rem;
+    overflow: hidden;
+}
+
+.img-uniLogo img {
     width: 100%;
     height: 100%;
     object-fit: cover;

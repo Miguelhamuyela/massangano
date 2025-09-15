@@ -21,7 +21,7 @@ class CountyController extends Controller
     {
         //
         $county = County::orderByDesc('id')->get();
-        return view('_admin.counties.list.index', compact('county'));
+        return view('_admin.countries.list.index', compact('county'));
     }
 
     /**

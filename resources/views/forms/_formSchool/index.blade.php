@@ -34,6 +34,14 @@
             placeholder="Ex: +244 923 000   000 / +244 923 000 000">
     </div>
 
+    {{-- Image --}}
+    <div class="col-lg-4 mb-4">
+        <label class="form-label">Imagem/Logo da Universidade</label>
+        <input type="file" name="image" class="form-control" value="{{ old('image', $school->image ?? '') }}"
+            accept="image/*">
+        <small class="text-muted">Formatos suportados: jpg, jpeg, png, gif</small>
+    </div>
+
     <div class="mb-5 d-flex align-items-center justify-content-between">
         <h5 class="fw-bold mb-0 me-4">
             <span class="d-block mb-2">Informações da Universidade :</span>

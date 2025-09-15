@@ -4,12 +4,8 @@
 
 @section('content')
     <div class="container py-4">
-<<<<<<< HEAD
-        <h3>Resultados encontrados das pesquisas: "{{ $query }}"</h3>
-
-=======
         <h3>Resultados para: "{{ $query }}"</h3>
->>>>>>> 98a4f8a6a811aa559cb1c5b2233b5911cc2289fc
+
         <section class="space-top space-extra-bottom">
             <div class="container">
                 <div class="row">
@@ -28,27 +24,25 @@
                                                 </a>
                                             </div>
                                             <div class="blog-content">
+                                                <h4>Nome do Finalista:<a class="hover-line" href="#">
+                                                        {{ $finalist->name }}</h4>
+                                                </a>
                                                 @if ($finalist->course)
-                                                    <h5>
+                                                    <h6>
                                                         Curso: <a data-theme-color="#6234AC" href="blog.html"
                                                             class="course hover-line">
                                                             {{ $finalist->course->name }}
                                                         </a>
-                                                    </h5>
+                                                    </h6>
                                                 @endif
                                                 @if ($finalist->school)
-                                                    <h5>
+                                                    <h6>
                                                         Universidade: <a data-theme-color="#6234AC" href="blog.html"
                                                             class="school hover-line">
                                                             {{ $finalist->school->name }}
                                                         </a>
-                                                    </h5>
+                                                    </h6>
                                                 @endif
-
-                                                <h4>Nome do Finalista:<a class="hover-line" href="#">
-                                                        {{ $finalist->name }}</h4>
-                                                </a>
-
 
                                                 @if ($finalist->file && file_exists(public_path('files/finalist/' . $finalist->file)))
                                                     <a href="{{ asset('files/finalist/' . $finalist->file) }}" download>
@@ -106,7 +100,7 @@
                                 @foreach ($schools as $school)
                                     <div class="border-blog2">
                                         <div class="blog-style4">
-                                            <div class="blog-img img-big img-profile">
+                                            <div class="blog-img img-big img-uniLogo">
                                                 <img src="{{ asset('img/school/' . $school->image) }}" alt="blog image">
                                             </div>
                                             <div class="blog-content">
@@ -116,16 +110,16 @@
                                                     </a>
                                                 </h3>
                                                 <p>Dados da Intituição</p>
-                                                <h5>
+                                                <h6>
                                                     E-mail: <a class="hover-line" href="#">
                                                         {{ $school->email }}
                                                     </a>
-                                                </h5>
-                                                <h5>
+                                                </h6>
+                                                <h6>
                                                     Telefone: <a class="hover-line" href="#">
                                                         {{ $school->phone }}
                                                     </a>
-                                                </h5>
+                                                </h6>
 
                                                 @if ($school->province)
                                                     <b>
