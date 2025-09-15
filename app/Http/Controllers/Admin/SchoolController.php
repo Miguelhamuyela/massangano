@@ -53,6 +53,7 @@ class SchoolController extends Controller
             'phone'       => 'required|string',
             'nRoom'       => 'required|string',
             'bout'        => 'required|string',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png',
             'schoolType'  => 'required|in:publica,privada',
             'schoolLevel' => 'required|in:Iº Ano,IIº Ano,IIIº Ano,IVº Ano,Vº Ano',
             'schoolCategory' => 'nullable|string',
@@ -67,6 +68,15 @@ class SchoolController extends Controller
         } */
 
         /* $data = $request->validate($rules); */
+        // Upload da imagem
+        $imageName = null;
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $image = $request->file('image');
+            $extension = $image->extension();
+            $imageName = md5($image->getClientOriginalName() . strtotime('now')) . '.' . $extension;
+            $image->move(public_path('img/school'), $imageName);
+            $data['image'] = $imageName; // Adiciona o nome da imagem ao array de dados
+        }
 
         School::create($data);
 
@@ -122,6 +132,7 @@ class SchoolController extends Controller
             'schoolType'  => 'required|in:publica, privada',
             'schoolLevel' => 'required|in:Iº Ano, IIº Ano, IIIº Ano, IVº Ano, Vº Ano',
             'schoolCategory' => 'required|string',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png',
             'description' => 'required|string',
             'id_provinces' => 'required|exists:provinces,id',
             'id_counties' => 'required|exists:counties,id',
@@ -136,6 +147,7 @@ class SchoolController extends Controller
             'phone'       => $request->phone,
             'nRoom'       => $request->nRoom,
             'bout'        => $request->bout,
+            'image'       => $request->image,
             'schoolType'  => $request->schoolType,
             'schoolLevel' => $request->schoolLevel,
             'schoolCategory' => $request->schoolCategory,
@@ -144,6 +156,15 @@ class SchoolController extends Controller
             'id_counties' => $request->id_counties,
             'id_courses' => $request->id_courses,
         ]);
+
+        // Upload da imagem
+        $imageName = null;
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $image = $request->file('image');
+            $extension = $image->extension();
+            $imageName = md5($image->getClientOriginalName() . strtotime('now')) . '.' . $extension;
+            $image->move(public_path('img/school'), $imageName);
+        }
 
         return redirect()->route('admin.school.update')->with('success', 'Escola atualizada com sucesso!');
         return redirect()->back()->with('error', 'Ocorreu um erro ao Salver Universidade!');

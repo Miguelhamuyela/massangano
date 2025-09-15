@@ -10,6 +10,7 @@ use App\Models\News;
 use App\Models\Tag;
 use App\Models\Category;
 use App\Models\Finalist;
+use App\Models\School;
 use App\Models\Advertisement;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -265,7 +266,23 @@ class NewsController extends Controller
                 'Recent',
                 'RecentPost',
                 'ads'
-            ))->with('news', collect()); // news vazio
+            ))->with('news', collect())->with('schools', collect()); // news vazio
+        }
+
+        $schools = School::where('name', 'like', "%{$query}%")->get();
+        if ($schools->count() > 0) {
+            // Retorna apenas escolas, mas mantendo as variáveis do layout
+            return view('site.search-results.search', compact(
+                'query',
+                'schools',
+                'categories',
+                'breaknews',
+                'footerCategory',
+                'subscription',
+                'Recent',
+                'RecentPost',
+                'ads'
+            ))->with('news', collect())->with('finalists', collect()); // news e finalists vazios
         }
 
         // Caso contrário, pesquisa notícias
@@ -297,6 +314,6 @@ class NewsController extends Controller
             'Recent',
             'RecentPost',
             'ads'
-        ))->with('finalists', collect()); // finalists vazio
+        ))->with('finalists', collect())->with('schools', collect()); // finalists vazio
     }
 }
