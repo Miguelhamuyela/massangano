@@ -53,7 +53,7 @@ class CountyController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect()->route('admin.country.listar')->with('success', 'Município criada com sucesso!');
+        return redirect()->route('admin.county.listar')->with('success', 'Município criada com sucesso!');
     }
 
     /**
