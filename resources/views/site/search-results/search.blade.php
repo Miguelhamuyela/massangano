@@ -1,11 +1,15 @@
-@extends('site.layout.main')
+@extends('layouts._site.main')
 
 @section('title', 'Resultados da Pesquisa')
 
 @section('content')
     <div class="container py-4">
+<<<<<<< HEAD
         <h3>Resultados encontrados das pesquisas: "{{ $query }}"</h3>
 
+=======
+        <h3>Resultados para: "{{ $query }}"</h3>
+>>>>>>> 98a4f8a6a811aa559cb1c5b2233b5911cc2289fc
         <section class="space-top space-extra-bottom">
             <div class="container">
                 <div class="row">
