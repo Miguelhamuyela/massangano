@@ -1,4 +1,4 @@
-@extends('site.layout.main')
+@extends('layouts._site.main')
 
 @section('title', 'Resultados da Pesquisa')
 
@@ -19,31 +19,30 @@
                                         <div class="blog-style4">
                                             <div class="blog-img img-big img-profile">
                                                 <a href="{{ asset('img/finalist/' . $finalist->cover) }} " target="_blank">
-                                                    <img src="{{ asset('img/finalist/' . $finalist->cover) }}" alt="blog image">
+                                                    <img src="{{ asset('img/finalist/' . $finalist->cover) }}"
+                                                        alt="blog image">
                                                 </a>
                                             </div>
                                             <div class="blog-content">
+                                                <h4>Nome do Finalista:<a class="hover-line" href="#">
+                                                        {{ $finalist->name }}</h4>
+                                                </a>
                                                 @if ($finalist->course)
-                                                    <h5>
+                                                    <h6>
                                                         Curso: <a data-theme-color="#6234AC" href="blog.html"
                                                             class="course hover-line">
                                                             {{ $finalist->course->name }}
                                                         </a>
-                                                    </h5>
+                                                    </h6>
                                                 @endif
                                                 @if ($finalist->school)
-                                                    <h5>
+                                                    <h6>
                                                         Universidade: <a data-theme-color="#6234AC" href="blog.html"
                                                             class="school hover-line">
                                                             {{ $finalist->school->name }}
                                                         </a>
-                                                    </h5>
+                                                    </h6>
                                                 @endif
-
-                                                <h4>Nome do Finalista:<a class="hover-line" href="#">
-                                                        {{ $finalist->name }}</h4>
-                                                </a>
-
 
                                                 @if ($finalist->file && file_exists(public_path('files/finalist/' . $finalist->file)))
                                                     <a href="{{ asset('files/finalist/' . $finalist->file) }}" download>
@@ -90,6 +89,56 @@
                                                         {{ $item->updated_at->format('d M, Y') }}
                                                     </a>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+
+                                {{-- Se não achou nada --}}
+                            @elseif($schools->count())
+                                <h4>Universidade encontrada</h4>
+                                @foreach ($schools as $school)
+                                    <div class="border-blog2">
+                                        <div class="blog-style4">
+                                            <div class="blog-img img-big img-uniLogo">
+                                                <img src="{{ asset('img/school/' . $school->image) }}" alt="blog image">
+                                            </div>
+                                            <div class="blog-content">
+                                                <h3 {{-- class="box-title-20" --}}>
+                                                    <a class="hover-line" href="#">
+                                                        {{ $school->name }}
+                                                    </a>
+                                                </h3>
+                                                <p>Dados da Intituição</p>
+                                                <h6>
+                                                    E-mail: <a class="hover-line" href="#">
+                                                        {{ $school->email }}
+                                                    </a>
+                                                </h6>
+                                                <h6>
+                                                    Telefone: <a class="hover-line" href="#">
+                                                        {{ $school->phone }}
+                                                    </a>
+                                                </h6>
+
+                                                @if ($school->province)
+                                                    <b>
+                                                        <p class="hover-line">
+                                                            Endereço: <a data-theme-color="#6234AC" href="blog.html"
+                                                                class="course hover-line">
+                                                                {{ $school->province->name }} /
+                                                                {{ $school->county->name }}
+                                                            </a>
+                                                        </p>
+                                                    </b>
+                                                @endif
+
+                                                {{--  <div class="blog-meta">
+                                                    <a href="#">
+                                                        <i class="fal fa-calendar-days"></i>
+                                                        {{ $school->updated_at->format('d M, Y') }}
+                                                    </a>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>

@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 @extends('_admin.layout.main')
 @section('title', 'Sogecepa- Visão Geral')
+=======
+@extends('layouts._admin.main')
+@section('title', 'Assessorarte- Visão Geral')
+>>>>>>> a6152299be6b6e8a5113ed70b9eaf40a457d6cb0
 @section('content')
 
     <div class="nxl-content">

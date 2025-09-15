@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 @extends('site.layout.main')
 @section('title', 'Sogecepa- Home')
+=======
+@extends('layouts._site.main')
+@section('title', 'Assessorarte- Home')
+>>>>>>> a6152299be6b6e8a5113ed70b9eaf40a457d6cb0
 @section('content')
     {{-- Sessão dos noticias da categoria Politica com mais destaque e as mais recentes --}}
     <div class="th-hero-wrapper hero-1" id="hero">

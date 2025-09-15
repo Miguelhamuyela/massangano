@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 @extends('_admin.layout.main')
 @section('title', 'Sogecepa- Editar Evento')
+=======
+@extends('layouts._admin.main')
+@section('title', 'Assessorarte- Editar Evento')
+>>>>>>> a6152299be6b6e8a5113ed70b9eaf40a457d6cb0
 @section('content')
     <!--! ================================================================ !-->
     <!--! [Start] Main Content !-->

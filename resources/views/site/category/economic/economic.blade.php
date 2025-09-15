@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 @extends('site.layout.main')
 @section('title', 'Sogecepa- Economia & Negócios')
+=======
+@extends('layouts._site.main')
+@section('title', 'Assessorarte- Economia & Negócios')
+>>>>>>> a6152299be6b6e8a5113ed70b9eaf40a457d6cb0
 @section('content')
 
     <div class="breadcumb-wrapper">

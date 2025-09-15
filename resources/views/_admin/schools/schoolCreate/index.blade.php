@@ -94,6 +94,14 @@
                                             placeholder="Ex: +244 923 000   000 / +244 923 000 000">
                                     </div>
 
+                                    {{-- Div de upload de imagem dos Finalistas --}}
+                                    <div class="col-lg-6 mb-4">
+                                        <label for="coverImg" class="form-label">Imagem/Logo da Universidade: </label>
+                                        <input type="file" class="form-control" name="cover" id="coverImg"
+                                            value="{{ old('cover') }}" placeholder="Carregue a imagem...">
+                                    </div>
+                                    {{-- Fim da Div de upload de imagem dos Finalistas --}}
+
                                     <div class="mb-5 d-flex align-items-center justify-content-between">
                                         <h5 class="fw-bold mb-0 me-4">
                                             <span class="d-block mb-2">Informações da Universidade :</span>
